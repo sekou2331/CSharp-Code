@@ -1,25 +1,20 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
 public static class Isogram
 {
     public static bool IsIsogram(string word)
     {
-        if (string.IsNullOrEmpty(word))
-            return true;
-        
-        
-        char previousLetter = word[0];
-        for (int i = 1; i < word.Length; i++)
-        {
+        var capWord = word.ToUpper();
+        var checkForAlphas = capWord.Where(c => Char.IsLetter(c)).ToArray();
+        var set = new HashSet<Char>(checkForAlphas);
+        var check = checkForAlphas.Length == set.Count();
+        var output = (check) ? true : false;
+        return output;
 
-            if (word[i] == previousLetter)
-            {
-                return true;
-            }
-            else { previousLetter = word[i]; }
-        }
-  
-       return true;
+
+
     }
 }
 //dotnet watch test
