@@ -4,8 +4,8 @@ public static class Acronym
 {
     public static string Abbreviate(string phrase)
     {
-
-            string capPhrase = phrase.ToUpper();
+            
+            string capPhrase = phrase.ToUpper().Replace("-", " ");
             char[] arr = capPhrase.ToCharArray();
             arr = Array.FindAll<char>(arr, (c => (char.IsLetterOrDigit(c)
                                               || char.IsWhiteSpace(c)
